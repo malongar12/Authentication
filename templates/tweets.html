@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block tweets %}
+
+<ul>
+{% for tweet in tweets %}
+
+<li><strong>{{tweet.register.username}}</strong>{{tweet.content}}</li>
+
+
+{% endfor %}
+</ul>
+
+{% endblock tweet %}

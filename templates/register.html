@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block Register %}
+
+<h1>Register</h1>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.widget.input_type != "hidden" %}
+
+    <p>{{field.label}}
+
+        {{field(class_="form-control")}}
+
+        {% with messages = get_flashed_messages() %}
+         {% if messages %}
+
+               {% for message in messages %}
+               {{ message }}
+               {% endfor %}
+        
+         {% endif %}
+      {% endwith %}
+
+        {% for error in field.error %}
+
+        {{error}}
+        
+        
+        {% endfor %}
+
+
+    </p>
+    {% endfor %}
+
+    <button class="btn btn-success"  type="submit">Register</button>
+
+
+
+
+</form>
+
+
+{% endblock  %}
